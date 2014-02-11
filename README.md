@@ -42,6 +42,21 @@ To upload your built apps from Jenkins or Travis CI, you can use one of two uplo
 
 ###Simple Upload API
 This API should be used when you only have one build artifact to upload and you are creating the app for the first time on Spout.  This API uses a POST to the /upload endpoint using the following parameters:
+
+| Parameter        | Type           |
+| ------------- |-------------|
+| product | The product name (case insensitive) |
+| app_package | The binary app file |
+| file_type | Specify either IOS or ANDROID |
+| note | Notes about this build |
+
+###Advanced Upload API
+
+You should use the advanced upload API when you have multiple assets (perhaps an .ipa file and a .dSYM file) that you want to upload and be attached to the app.  You must first create the app by POSTing to the /app/create endpoint using the following parameters:
+
+| Parameter | Type |
+|----|----|
+|
  
 ## Local Development
 
