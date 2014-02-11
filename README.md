@@ -38,7 +38,10 @@ On the "add page" view of the admin console, there are several options to contro
 
 ##Upload API
 
-To 
+To upload your built apps from Jenkins or Travis CI, you can use one of two upload APIs.
+
+###Simple Upload API
+This API should be used when you only have one build artifact to upload and you are creating the app for the first time on Spout.  This API uses a POST to the /upload endpoint using the following parameters:
  
 ## Local Development
 
