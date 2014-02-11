@@ -44,7 +44,7 @@ Spout allows you to tightly control what pages your users have access to and for
 When adding/editing a user, there's several fields you can use to limit access to users.
 
 | Field | |
-|-|-|
+|----|----|
 |Allowed Pages | These are the pages that the user will have access to.  All allowed pages will be displayed in the top area of the user-facing page after the user logs in.|
 |Main Page | This is the main page that the user will see after logging in to the site.  Currently, this page also must be listed in the 'Allowed Pages' list as well.|
 | Is Admin | Indicates that the user has access to this admin console.|
@@ -84,7 +84,7 @@ Upon posting successfully, a JSON dictionary is returned:
 Once you have the app ID, you can post to the endpoint `/app/[app id]/asset/add` to add any number of assets to be associated with your app.  POSTing to this takes the following parameters:
 
 | Parameter |  |
-|--|--|
+|---|---|
 | primary | 1 or 0 if the app should be considered the primary asset associated with the app.  Typically, primary assets would be the app binary (.apk or .ipa file).|
 | asset_file | The binary file to associate with the app |
 
