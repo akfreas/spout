@@ -41,24 +41,40 @@ On the "add page" view of the admin console, there are several options to contro
 To upload your built apps from Jenkins or Travis CI, you can use one of two upload APIs.
 
 ###Simple Upload API
-This API should be used when you only have one build artifact to upload and you are creating the app for the first time on Spout.  This API uses a POST to the /upload endpoint using the following parameters:
+This API should be used when you only have one build artifact to upload and you are creating the app for the first time on Spout.  This API uses a POST to the `/upload` endpoint using the following parameters:
 
-| Parameter        | Type           |
+| Parameter        | Description           |
 | ------------- |-------------|
 | product | Product name (case insensitive) |
 | app_package | Binary app file |
 | file_type | Specify either IOS or ANDROID |
 | note | Notes about this build |
+| tag | The single tag that you want to apply to this app |
 
 ###Advanced Upload API
 
-You should use the advanced upload API when you have multiple assets (perhaps an .ipa file and a .dSYM file) that you want to upload and be attached to the app.  You must first create the app by POSTing to the /app/create endpoint using the following parameters:
+You should use the advanced upload API when you have multiple assets (perhaps an .ipa file and a .dSYM file) that you want to upload and be attached to the app.  You must first create the app by POSTing to the `/app/create` endpoint using the following parameters:
 
-| Parameter | Type |
+| Parameter |  |
 |----|----|
 | product | Product name (case insensitive) |
 | note | Notes about this app |
 | tags | Comma separated list of tags to apply to this app.  If the tag doesn't exist, it is created.|
+
+Upon posting successfully, a JSON dictionary is returned:
+
+| Parameter |  |
+|---|---|
+| app_id | The newly created app ID |
+
+Once you have the app ID, you can post to the endpoint `/app/[app id]/asset/add` to add any number of assets to be associated with your app.  POSTing to this takes the following parameters:
+
+| Parameter | |
+|--|--|
+| primary | 1 or 0 if the app should be considered the primary asset associated with the app.  Typically, primary assets would be the app binary (.apk or .ipa file).|
+| asset_file | The binary file to associate with the app |
+
+
 ## Local Development
 
 If you are going to use Sqlite3 for your local development database, be sure to run `pip install pysqlite`.  
