@@ -83,7 +83,7 @@ Upon posting successfully, a JSON dictionary is returned:
 
 Once you have the app ID, you can post to the endpoint `/app/[app id]/asset/add` to add any number of assets to be associated with your app.  POSTing to this takes the following parameters:
 
-| Parameter | |
+| Parameter |  |
 |--|--|
 | primary | 1 or 0 if the app should be considered the primary asset associated with the app.  Typically, primary assets would be the app binary (.apk or .ipa file).|
 | asset_file | The binary file to associate with the app |
