@@ -45,8 +45,8 @@ This API should be used when you only have one build artifact to upload and you 
 
 | Parameter        | Type           |
 | ------------- |-------------|
-| product | The product name (case insensitive) |
-| app_package | The binary app file |
+| product | Product name (case insensitive) |
+| app_package | Binary app file |
 | file_type | Specify either IOS or ANDROID |
 | note | Notes about this build |
 
@@ -56,8 +56,9 @@ You should use the advanced upload API when you have multiple assets (perhaps an
 
 | Parameter | Type |
 |----|----|
-|
- 
+| product | Product name (case insensitive) |
+| note | Notes about this app |
+| tags | Comma separated list of tags to apply to this app.  If the tag doesn't exist, it is created.|
 ## Local Development
 
 If you are going to use Sqlite3 for your local development database, be sure to run `pip install pysqlite`.  
