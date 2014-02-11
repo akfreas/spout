@@ -36,6 +36,20 @@ On the "add page" view of the admin console, there are several options to contro
  - How the page should be grouped
  - The rows that make up the page
 
+##User Management
+
+Spout allows you to tightly control what pages your users have access to and for how long their login information is valid.  This is useful when you want to do a limited availability beta test and to ensure that certain users are only able to download apps from specific pages.
+
+###User Admin View
+When adding/editing a user, there's several fields you can use to limit access to users.
+
+| Field | |
+|-|-|
+|Allowed Pages | These are the pages that the user will have access to.  All allowed pages will be displayed in the top area of the user-facing page after the user logs in.|
+|Main Page | This is the main page that the user will see after logging in to the site.  Currently, this page also must be listed in the 'Allowed Pages' list as well.|
+| Is Admin | Indicates that the user has access to this admin console.|
+| Expiration Date | Specifies the time at which the user's account will no longer be active and unable to download apps from allowed pages.|
+ 
 ##Upload API
 
 To upload your built apps from Jenkins or Travis CI, you can use one of two upload APIs.
@@ -73,6 +87,14 @@ Once you have the app ID, you can post to the endpoint `/app/[app id]/asset/add`
 |--|--|
 | primary | 1 or 0 if the app should be considered the primary asset associated with the app.  Typically, primary assets would be the app binary (.apk or .ipa file).|
 | asset_file | The binary file to associate with the app |
+
+
+##Site Settings
+
+Your current site is typically the first one listed (with ID 1) in the Sites list on the admin page.
+
+###S3 Upload Settings
+Spout can take your builds and upload them automatically to S3.  In the site configuration view, click "Upload builds to S3" and enter your S3 bucket name as well as your AWS access credentials.
 
 
 ## Local Development
